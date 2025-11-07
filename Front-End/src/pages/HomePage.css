@@ -39,9 +39,9 @@
 .link-element{
     margin-right: 15px;
     margin-left: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .login-button{
-    
     background-color: rgb(33, 33, 237);
     margin-right: 55px;
     padding-left: 20px;
