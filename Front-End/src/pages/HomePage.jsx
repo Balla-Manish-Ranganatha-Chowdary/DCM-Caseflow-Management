@@ -36,6 +36,11 @@ export function HomePage (){
                 </Link>
             </div>
         </div>
+        <div className='slogan-container'>
+            <p className='slogan'>
+                Data-Driven Justice, Seamless Case Flow. @\\ 2025
+            </p>
+        </div>
         </>
     )
 }

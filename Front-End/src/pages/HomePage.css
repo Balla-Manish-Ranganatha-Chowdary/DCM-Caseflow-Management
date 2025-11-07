@@ -60,3 +60,13 @@
     background-color: rgba(33, 33, 237, 0.809);
     color:aliceblue;
 }
+.slogan-container{
+    margin-top: 110px;
+    margin-left: 40px;
+    max-width: 150px;
+}
+.slogan{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(0, 0, 0, 0.348);
+    
+}
