@@ -1,0 +1,13 @@
+.sign-in-format{
+    max-width: 50%;
+    background-color: red;
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+.sign-up-format{
+    max-width: 50%;
+    float: right;
+    background-color: aqua;
+    width: 50%;
+}
