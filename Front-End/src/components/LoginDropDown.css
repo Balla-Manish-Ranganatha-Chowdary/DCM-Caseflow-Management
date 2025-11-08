@@ -1,0 +1,62 @@
+.login-container {
+position: relative;
+display: inline-block;
+}
+
+.login-btn{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgb(33, 33, 237);
+    margin-right: 55px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px; 
+    padding-top: 10px;
+    border: none;
+    border-radius: 20px;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.login-btn:hover{
+    color: black;
+    background-color:rgb(95, 97, 100);
+}
+.drop-down {
+    position: absolute;
+    top: 110%; /* below login button */
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 25px;
+    animation: fadeIn 0.7s ease-in-out;
+    z-index: 100;
+}
+.drop-down-btn {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color:whitesmoke;
+    color: black;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 13px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+.drop-down-btn:hover {
+    background-color: black;
+    color: whitesmoke;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+}
+}

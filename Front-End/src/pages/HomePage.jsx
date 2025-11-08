@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 import './HomePage.css'
+import { LoginDropDown } from '../components/LoginDropDown'
 
 export function HomePage (){
     return(
@@ -32,13 +33,10 @@ export function HomePage (){
                 </Link>
             </div>
             <div className="right-section">
-                <Link to="login">
-                    <button className="login-button">
-                        Login/sign-in
-                    </button>
-                </Link>
+                <LoginDropDown />
             </div>
         </div>
+        <hr />
         <div className='slogan-container'>
             <p className='slogan'>
                 Data-Driven Justice, Seamless Case Flow
@@ -66,6 +64,7 @@ export function HomePage (){
                 &#8599;
             </button>
         </div>
+        
         </>
     )
 }

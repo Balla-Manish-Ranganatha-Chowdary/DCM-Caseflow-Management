@@ -1,8 +1,0 @@
-body {
-    background-image: url('./assets/background.png');
-    background-size: cover;       /* makes the image fill the screen */
-    background-position: center;  /* centers the image */
-    background-repeat: no-repeat; /* prevents tiling */
-    height: 100vh;                /* ensures it covers the full viewport */
-    margin: 0;
-}
