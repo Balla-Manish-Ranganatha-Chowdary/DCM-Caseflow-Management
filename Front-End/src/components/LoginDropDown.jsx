@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router";
 import './loginDropDown.css'
 export function LoginDropDown(){
     const [showmenu, setshowmenu] = useState(false);
@@ -13,9 +14,15 @@ export function LoginDropDown(){
             </div>
             {showmenu && (
                 <div className="drop-down">
-                    <button className="drop-down-btn">User</button>
-                    <button className="drop-down-btn">Judge</button>
-                    <button className="drop-down-btn">Admin</button>
+                    <Link to="user-login-page">
+                        <button className="drop-down-btn">User</button>
+                    </Link>
+                    <Link to="judge-login-page">
+                        <button className="drop-down-btn">Judge</button>
+                    </Link>
+                    <Link to="admin-login-page">
+                        <button className="drop-down-btn">Admin</button>
+                    </Link>
                 </div>
             )}
         </div>
