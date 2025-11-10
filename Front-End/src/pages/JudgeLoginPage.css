@@ -1,0 +1,81 @@
+.judge-login-page-container{
+    background-image: url('../assets/judge_login_background.png');
+    background-size: cover;       /* makes the image fill the screen */
+    background-position: center;  /* centers the image */
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sign-in-container{
+    display: grid;
+    place-items: center;
+    max-width: 300px;
+    background-color: rgba(255, 255, 255, 0.411);
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+.sign-in-container:hover{
+    background-color: rgba(255, 255, 255, 0.611);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+.sign-in-img{
+    margin-left: 115px;
+    background-color: rgba(255, 255, 255, 0.615);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.295);
+    transition: all 0.3s ease;
+}
+h3{
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.email-input{
+    display: block;
+    font-size: 15px;
+    padding: 8px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.password-input{
+    display: block;
+    font-size: 15px;
+    padding: 8px;
+    border: none;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 8px;
+}
+.forgot-password-link{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: block;
+    font-size: 13px;
+    margin-left: 90px;
+    margin-bottom: 15px;
+}
+.submit-btn{
+    padding: 10px 60px;
+    border:none;
+    border-radius: 12px;
+    background-color: black;
+    color: whitesmoke;
+    
+}
+.alternative-sign-in-statement{
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+}
+.alternative-sign-in-application{
+    margin-right: 20px;
+}

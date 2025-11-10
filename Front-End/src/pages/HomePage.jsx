@@ -11,7 +11,7 @@ export function HomePage (){
                 <div className="left-section">
                     <div>
                         <Link to="/" className='header-link'>
-                            <img className="logo" src='../src/assets/logo.png' />
+                            <img className="logo-1" src='../src/assets/logo.png' />
                         </Link>
                     </div>
                     

@@ -6,7 +6,7 @@ export function UserLoginPage(){
             <title>User Login page</title>
             
             <div className="sign-in-format">
-                <h1>Sign-in</h1>
+                <h1 className="user-log-in-h1">Sign-in</h1>
                 <div className="alernative-login">
                     <a href="gmail.com" target="_blank" className="login-image">
                         <img src="../src/assets/mail.png" width="40px" className="logo" />
@@ -23,7 +23,7 @@ export function UserLoginPage(){
                 </div>
                 <div className="login-form">
                     <p className="p-sentence">
-                        Use your email password
+                        Use your email & password
                     </p>
                     <form action="/login">
                         <input type="email" className="email-form" placeholder="Email" />
@@ -40,7 +40,15 @@ export function UserLoginPage(){
                 </div>
             </div> 
             <div className="sign-up-format">
-                <h1>DIV 2</h1>
+                <div className="greeting-container">
+                    <h1 className="greeting-sentence">Hello, User!</h1>
+                    <p className="greeting-description">Register with your personal details to use all of site features</p>
+                    <Link>
+                    <button className="sign-up-btn">
+                        Sign Up
+                    </button>
+                    </Link>
+                </div>
             </div>
         </>
     )

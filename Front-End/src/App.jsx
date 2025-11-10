@@ -3,6 +3,8 @@ import { HomePage } from './pages/HomePage'
 import {Routes, Route} from 'react-router'
 import { Policy } from './components/Policy'
 import { UserLoginPage } from './pages/UserLoginPage'
+import { JudgeLoginPage } from './pages/JudgeLoginPage'
+import { AdminLoginPage } from './pages/AdminLoginPage'
 function App() {
 
   return (
@@ -15,6 +17,8 @@ function App() {
       <Route path='contact' element={<div>Contact page</div>}/>
       <Route path='blog' element={<div>Blog page</div>}/>
       <Route path='user-login-page' element={<UserLoginPage />}/>
+      <Route path='judge-login-page' element={<JudgeLoginPage />} />
+      <Route path='admin-login-page' element={<AdminLoginPage />} />
     </Routes>
     </>
   )

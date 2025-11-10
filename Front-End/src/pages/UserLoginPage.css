@@ -1,5 +1,6 @@
 body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: whitesmoke;
 }
 .sign-in-format{
     max-width: 50%;
@@ -9,14 +10,13 @@ body{
     text-align: center;
     height: 100vh;
 }
-.sign-up-format{
-    max-width: 50%;
-    float: right;
-    background-color: aqua;
-    width: 50%;
+
+.user-log-in-h1{
+    margin-top: 100px;
+    font-size: 35px;
 }
-h1{
-    margin-top: 120px;
+.alernative-login{
+    margin-top: 45px;
 }
 .login-image{
     margin: 12px;
@@ -70,4 +70,50 @@ h1{
 .sign-in-btn{
     margin-top: 10px;
     padding: 12px 24px;
+    border: none;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    
+}
+.sign-in-btn:hover{
+    background-color: rgba(0, 0, 0, 0.776);
+}
+
+.sign-up-format{
+    max-width: 50%;
+    float: right;
+    background-color: aqua;
+    width: 50%;
+    height: 100vh;
+    text-align: center;
+    color: white;
+    border-top-left-radius: 200px;
+    border-bottom-left-radius: 200px;
+}
+.greeting-container{
+    margin-top: 200px;
+}
+.greeting-sentence{
+    margin-bottom: 20px;
+}
+.greeting-description{
+    max-width: 300px;
+    margin-left: 175px;
+    font-size: 18px;
+}
+.sign-up-btn{
+    padding: 12px 24px;
+    border-radius: 20px;
+    margin-top: 30px;
+    background-color: aqua;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+}
+.sign-up-btn:hover{
+    color: aqua;
+    background-color: white;
+    border: 1px solid aqua;
 }
