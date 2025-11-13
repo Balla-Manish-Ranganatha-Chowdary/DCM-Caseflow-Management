@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router';
 export function LoginForm({inputClass, 
-    submitClass, registerLinkContainer ,registerLinkClass , submitBtnName, isUser, isjudge}){
+    submitClass, registerLinkContainer ,registerLinkClass , submitBtnName, isUser, notjudge}){
     const{
         register,
         handleSubmit,
@@ -39,7 +39,7 @@ export function LoginForm({inputClass,
                     })}
                 />
                 {errors.password && <div style={{color : 'red' , fontSize : '15px',}} >{errors.password.message}</div>}
-                {isjudge && <div className={registerLinkContainer}>
+                {notjudge && <div className={registerLinkContainer}>
                     <Link to="forget-pass" className={registerLinkClass}>
                           Forget your password?
                     </Link>

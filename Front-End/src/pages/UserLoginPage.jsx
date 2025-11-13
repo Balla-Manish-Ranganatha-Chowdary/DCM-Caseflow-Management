@@ -28,6 +28,7 @@ export function UserLoginPage(){
                     </p>
                     <LoginForm 
                         isUser={true}
+                        notjudge={true}
                         inputClass = 'user-input'
                         submitBtnName = 'Sign-in'
                         submitClass = 'user-signin-btn'

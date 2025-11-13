@@ -16,6 +16,7 @@ export function JudgeLoginPage(){
                     </div>
                     <LoginForm 
                     isUser={false}
+                        notjudge={true}
                         inputClass = 'judge-input'
                         submitBtnName = 'Get Started'
                         submitClass = 'judge-signin-btn'
