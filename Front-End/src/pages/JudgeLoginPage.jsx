@@ -1,3 +1,4 @@
+import { LoginForm } from '../components/LoginForm'
 import './JudgeLoginPage.css'
 
 export function JudgeLoginPage(){
@@ -13,18 +14,14 @@ export function JudgeLoginPage(){
                             “Focused Insights for Fair and Swift Justice.”
                         </p>
                     </div>
-                    <div className='login-form'>
-                        <form action='login'>
-                            <input type='email' placeholder='Email' className='email-input' />
-                            <input type='password' placeholder='Password' className='password-input' />
-                            <a href="forgot password" className='forgot-password-link'>
-                                Forgot password?
-                            </a>
-                            <button type='submit' className='submit-btn'>
-                                Get Started
-                            </button>
-                        </form>
-                    </div>
+                    <LoginForm 
+                    isUser={false}
+                        inputClass = 'judge-input'
+                        submitBtnName = 'Get Started'
+                        submitClass = 'judge-signin-btn'
+                        registerLinkContainer = 'judge-register-link-contain'
+                        registerLinkClass = 'judge-register-link'
+                    />
                     <div className='alternative-sign-in-option'>
                         <p className='alternative-sign-in-statement'>or sign in with</p>
                         <a href='google.com' target='_blank' className='alternative-link' >

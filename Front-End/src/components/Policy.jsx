@@ -1,4 +1,5 @@
 import './Policy.css'
+import { LoginForm } from './LoginForm'
 export function Policy (){
     return(
         <>
@@ -22,11 +23,13 @@ export function Policy (){
                 <a href="#refund">Refund Policy</a>
                 <a href="#security">Security Policy</a>
                 </nav>
-                <main>
-                    <section>
-                        
-                    </section>
-                </main>
+                <LoginForm 
+                    inputClass = 'policy-input'
+                    submitBtnName = 'Sign-in'
+                    submitClass = 'policy-submit'
+                    registerLinkContainer = 'policy-register-link-contain'
+                    registerLinkClass = 'policy-register-link'
+                />
             </div>
              
         </>

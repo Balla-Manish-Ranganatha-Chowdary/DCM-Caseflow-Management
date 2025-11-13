@@ -1,4 +1,5 @@
 import { Link} from "react-router"
+import { LoginForm } from "../components/LoginForm";
 import './UserLoginPage.css';
 export function UserLoginPage(){
     return(
@@ -25,25 +26,21 @@ export function UserLoginPage(){
                     <p className="p-sentence">
                         Use your email & password
                     </p>
-                    <form action="/login">
-                        <input type="email" className="email-form" placeholder="Email" />
-                        <input type="password" className="password-form" placeholder="Password" />
-                        <div className="forgot-container">
-                            <Link to="forget-pass" className="forgot-link">
-                                Forget your password?
-                            </Link>
-                        </div>
-                        <button type="submit" className="sign-in-btn">
-                            Sign In
-                        </button>
-                    </form>  
+                    <LoginForm 
+                        isUser={true}
+                        inputClass = 'user-input'
+                        submitBtnName = 'Sign-in'
+                        submitClass = 'user-signin-btn'
+                        registerLinkContainer = 'user-register-link-contain'
+                        registerLinkClass = 'user-register-link'
+                    />  
                 </div>
             </div> 
             <div className="sign-up-format">
                 <div className="greeting-container">
                     <h1 className="greeting-sentence">Hello, User!</h1>
                     <p className="greeting-description">Register with your personal details to use all of site features</p>
-                    <Link>
+                    <Link >
                     <button className="sign-up-btn">
                         Sign Up
                     </button>

@@ -5,6 +5,7 @@ import { Policy } from './components/Policy'
 import { UserLoginPage } from './pages/UserLoginPage'
 import { JudgeLoginPage } from './pages/JudgeLoginPage'
 import { AdminLoginPage } from './pages/AdminLoginPage'
+import { LoginForm } from './components/LoginForm'
 function App() {
 
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path='user-login-page' element={<UserLoginPage />}/>
       <Route path='judge-login-page' element={<JudgeLoginPage />} />
       <Route path='admin-login-page' element={<AdminLoginPage />} />
+      <Route path='user-login-page/form-valid' element={<LoginForm />} />
     </Routes>
     </>
   )
