@@ -48,7 +48,7 @@
 .admin-log-in-header{
     margin-bottom: 66px;
 }
-.admin-log-in-email-input{
+.admin-input{
     display: block;
     padding: 10px 10px;
     padding-right: 20px;
@@ -58,26 +58,21 @@
     border-radius: 10px;
     margin-bottom: 20px;
 }
-.admin-log-in-password-input{
-    display: block;
-    padding: 10px 10px;
-    padding-right: 20px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 15px;
-    border: none;
-    border-radius: 10px;
-    margin-bottom: 20px;   
-}
-.admin-log-in-submit-btn{
+
+.admin-signin-btn{
     margin-top: 20px;
     padding: 12px 24px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border: none;
     border-radius: 20px;
     color: navy;
-    background-color: rgba(255, 255, 255, 0.538);
+    background-color: rgba(255, 255, 255, 0.548);
     margin-left: 50px;
     cursor: pointer;
+}
+.admin-signin-btn:hover{
+    color: rgba(255, 255, 255, 0.548);
+    background-color: navy;
 }
 .admin-log-in-footer{
     margin-top: 25px;

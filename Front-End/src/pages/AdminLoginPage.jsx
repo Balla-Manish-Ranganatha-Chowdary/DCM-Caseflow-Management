@@ -1,3 +1,4 @@
+import {LoginForm} from '../components/LoginForm'
 import './AdminLoginPage.css';
 
 export function AdminLoginPage(){
@@ -16,15 +17,12 @@ export function AdminLoginPage(){
                                 </a>
                             </p>
                         </div>
-                        <div className='admin-log-in-form'>
-                            <form action='login'>
-                                <input type='email' placeholder='Email' className='admin-log-in-email-input' />
-                                <input type='password' placeholder='Password' className='admin-log-in-password-input' />
-                                <button type='submit' className='admin-log-in-submit-btn'>
-                                    Get started
-                                </button>
-                            </form>
-                        </div>
+                        <LoginForm 
+                            isJudge={true}
+                            inputClass = 'admin-input'
+                            submitBtnName = 'Log In'
+                            submitClass = 'admin-signin-btn'
+                        />
                         <div className='admin-log-in-footer'>
                             <p className='admin-log-in-request-access'>
                                 Any query?
