@@ -1,4 +1,5 @@
 import {LoginForm} from '../components/LoginForm'
+import { admins } from '../data/admins';
 import './AdminLoginPage.css';
 
 export function AdminLoginPage(){
@@ -18,6 +19,8 @@ export function AdminLoginPage(){
                             </p>
                         </div>
                         <LoginForm 
+                            authenticate={admins}
+                            signinLink= 'adminPage'
                             isJudge={true}
                             inputClass = 'admin-input'
                             submitBtnName = 'Log In'

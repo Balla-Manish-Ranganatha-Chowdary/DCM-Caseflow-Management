@@ -89,17 +89,19 @@ hr{
 .into-statement{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size:35px;
-    color: rgb(251, 249, 249);
+    color: white;
     margin-left: 50px;
     margin-top: 125px;
+    text-align: justify;
 }
 .conclusion-statement{
     margin-top: 230px;
     margin-right: 45px;
     max-width: 330px;
-    color: rgb(251, 249, 249);
+    color: white;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 15px;
+    text-align: justify;
 }
 .try-button{
     background-color: white;

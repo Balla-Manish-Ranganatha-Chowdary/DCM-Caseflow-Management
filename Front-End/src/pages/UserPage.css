@@ -1,0 +1,38 @@
+.user-home-page{
+    background-image: url('../src/assets/background.png');
+    background-size: cover;       /* makes the image fill the screen */
+    background-position: center;  /* centers the image */
+    background-repeat: no-repeat; /* prevents tiling */
+    height: 100vh;                /* ensures it covers the full viewport */
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.user-welcome-message{
+    font-size: 45px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-left: 50px;
+    padding-top: 60px;
+    color: white;
+}
+.file-btn{
+    padding: 12px 24px;
+    border-radius: 20px;
+    border: none;
+    background-color: whitesmoke;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    margin-left: 50px;
+}
+.file-btn:hover{
+    background-color: black;
+    color: whitesmoke;
+}
+.user-welcome-slogan{
+    margin-left: 50px;
+    font-size: 20px;
+    max-width: 450px;
+    color: grey;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: justify;
+}

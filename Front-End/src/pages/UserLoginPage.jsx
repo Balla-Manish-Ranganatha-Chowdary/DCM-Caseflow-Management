@@ -27,6 +27,8 @@ export function UserLoginPage(){
                         Use your email & password
                     </p>
                     <LoginForm 
+                        
+                        signinLink= 'userpage'
                         isUser={true}
                         notjudge={true}
                         inputClass = 'user-input'

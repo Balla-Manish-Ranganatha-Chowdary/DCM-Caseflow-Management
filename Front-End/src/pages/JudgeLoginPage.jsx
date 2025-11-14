@@ -1,4 +1,5 @@
 import { LoginForm } from '../components/LoginForm'
+import { judges } from '../data/judges'
 import './JudgeLoginPage.css'
 
 export function JudgeLoginPage(){
@@ -15,7 +16,9 @@ export function JudgeLoginPage(){
                         </p>
                     </div>
                     <LoginForm 
-                    isUser={false}
+                        authenticate={judges}
+                        signinLink= 'judgePage'
+                        isUser={false}
                         notjudge={true}
                         inputClass = 'judge-input'
                         submitBtnName = 'Get Started'
