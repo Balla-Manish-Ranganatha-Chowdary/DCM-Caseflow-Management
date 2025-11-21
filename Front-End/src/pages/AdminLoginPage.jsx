@@ -19,8 +19,8 @@ export function AdminLoginPage(){
                             </p>
                         </div>
                         <LoginForm 
-                            authenticate={admins}
-                            signinLink= 'adminPage'
+                            loginEndpoint="/api/auth/login/admin"
+                            redirectPath="/admin-dashboard"
                             isJudge={true}
                             inputClass = 'admin-input'
                             submitBtnName = 'Log In'

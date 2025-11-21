@@ -27,8 +27,8 @@ export function UserLoginPage(){
                         Use your email & password
                     </p>
                     <LoginForm 
-                        
-                        signinLink= 'userpage'
+                        loginEndpoint="/api/auth/login/user"
+                        redirectPath="/user-dashboard"
                         isUser={true}
                         notjudge={true}
                         inputClass = 'user-input'
@@ -43,7 +43,7 @@ export function UserLoginPage(){
                 <div className="greeting-container">
                     <h1 className="greeting-sentence">Hello, User!</h1>
                     <p className="greeting-description">Register with your personal details to use all of site features</p>
-                    <Link >
+                    <Link to="/user-signup">
                     <button className="sign-up-btn">
                         Sign Up
                     </button>

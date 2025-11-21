@@ -36,3 +36,87 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: justify;
 }
+
+.file-case-form {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin: 20px 50px;
+    max-width: 600px;
+}
+
+.file-case-form h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.case-input,
+.case-textarea,
+.case-select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.case-textarea {
+    resize: vertical;
+}
+
+.submit-case-btn {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-case-btn:hover {
+    background: #229954;
+}
+
+.cases-list {
+    margin: 40px 50px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.cases-list h2 {
+    font-size: 1.8rem;
+    color: #34495e;
+    margin-bottom: 20px;
+}
+
+.cases-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cases-table thead {
+    background: #3498db;
+    color: white;
+}
+
+.cases-table th,
+.cases-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.cases-table tbody tr:hover {
+    background: #f8f9fa;
+}

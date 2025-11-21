@@ -16,8 +16,8 @@ export function JudgeLoginPage(){
                         </p>
                     </div>
                     <LoginForm 
-                        authenticate={judges}
-                        signinLink= 'judgePage'
+                        loginEndpoint="/api/auth/login/judge"
+                        redirectPath="/judge-dashboard"
                         isUser={false}
                         notjudge={true}
                         inputClass = 'judge-input'

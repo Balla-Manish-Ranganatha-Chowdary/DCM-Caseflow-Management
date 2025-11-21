@@ -1,0 +1,227 @@
+.user-dashboard {
+    min-height: 100vh;
+    background: #f8f9fa;
+}
+
+.dashboard-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.welcome-section {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.welcome-section h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.welcome-section p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.action-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.action-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-left: 5px solid transparent;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.action-card.file-case {
+    border-left-color: #3498db;
+}
+
+.action-card.file-case:hover {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+}
+
+.action-card.check-status {
+    border-left-color: #27ae60;
+}
+
+.action-card.check-status:hover {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    color: white;
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.action-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: inherit;
+}
+
+.action-card p {
+    color: inherit;
+    opacity: 0.8;
+}
+
+.recent-cases-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.recent-cases-section h2 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.no-cases {
+    text-align: center;
+    padding: 40px 20px;
+    color: #7f8c8d;
+}
+
+.file-first-case-btn {
+    display: inline-block;
+    background: #3498db;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: background 0.3s ease;
+}
+
+.file-first-case-btn:hover {
+    background: #2980b9;
+}
+
+.cases-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.case-preview-card {
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.case-preview-card:hover {
+    border-color: #3498db;
+    box-shadow: 0 2px 10px rgba(52, 152, 219, 0.1);
+}
+
+.case-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.case-header h4 {
+    color: #2c3e50;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.status-badge.pending {
+    background: #f39c12;
+    color: white;
+}
+
+.status-badge.scheduled {
+    background: #3498db;
+    color: white;
+}
+
+.status-badge.completed {
+    background: #27ae60;
+    color: white;
+}
+
+.case-number {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.case-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.view-all-cases {
+    display: block;
+    text-align: center;
+    color: #3498db;
+    text-decoration: none;
+    padding: 15px;
+    border: 2px dashed #3498db;
+    border-radius: 8px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.view-all-cases:hover {
+    background: #3498db;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .dashboard-content {
+        padding: 20px 15px;
+    }
+    
+    .welcome-section h1 {
+        font-size: 2rem;
+    }
+    
+    .case-details {
+        flex-direction: column;
+        gap: 5px;
+    }
+}

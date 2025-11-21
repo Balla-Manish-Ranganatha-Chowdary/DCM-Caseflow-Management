@@ -1,0 +1,68 @@
+.judge-home-page {
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.judge-welcome-message {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin: 20px 0;
+}
+
+.judge-welcome-slogan {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.cases-list {
+    margin-top: 40px;
+}
+
+.cases-list h2 {
+    font-size: 1.8rem;
+    color: #34495e;
+    margin-bottom: 20px;
+}
+
+.cases-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cases-table thead {
+    background: #3498db;
+    color: white;
+}
+
+.cases-table th,
+.cases-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.cases-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.schedule-hearing-btn {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.schedule-hearing-btn:hover {
+    background: #229954;
+}

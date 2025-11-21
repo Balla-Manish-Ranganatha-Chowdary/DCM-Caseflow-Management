@@ -1,0 +1,228 @@
+.judge-cases-page {
+    min-height: 100vh;
+    background: #f8f9fa;
+}
+
+.cases-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    color: #7f8c8d;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #e9ecef;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.no-cases-container {
+    text-align: center;
+    padding: 80px 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.no-cases-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.no-cases-container h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.no-cases-container p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+.cases-table-container {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+.cases-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1000px;
+}
+
+.cases-table thead {
+    background: #f8f9fa;
+}
+
+.cases-table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #2c3e50;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.cases-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f1f3f4;
+    color: #495057;
+}
+
+.cases-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.complexity-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: white;
+}
+
+.complexity-badge.simple {
+    background: #2ecc71;
+}
+
+.complexity-badge.moderate {
+    background: #f39c12;
+}
+
+.complexity-badge.complex {
+    background: #e67e22;
+}
+
+.complexity-badge.highly_complex {
+    background: #e74c3c;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: white;
+}
+
+.status-badge.pending {
+    background: #f39c12;
+}
+
+.status-badge.scheduled {
+    background: #3498db;
+}
+
+.status-badge.in_progress {
+    background: #9b59b6;
+}
+
+.status-badge.completed {
+    background: #27ae60;
+}
+
+.status-badge.adjourned {
+    background: #e74c3c;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.schedule-hearing-btn,
+.close-case-btn {
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.schedule-hearing-btn {
+    background: #3498db;
+    color: white;
+}
+
+.schedule-hearing-btn:hover {
+    background: #2980b9;
+}
+
+.close-case-btn {
+    background: #27ae60;
+    color: white;
+}
+
+.close-case-btn:hover {
+    background: #229954;
+}
+
+.completed-text {
+    color: #27ae60;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .cases-content {
+        padding: 20px 15px;
+    }
+    
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .cases-table-container {
+        padding: 20px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .schedule-hearing-btn,
+    .close-case-btn {
+        width: 100%;
+    }
+}
