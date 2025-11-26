@@ -1,56 +1,44 @@
-import {LoginForm} from '../components/LoginForm'
-import { admins } from '../data/admins';
-import './AdminLoginPage.css';
+import { LoginForm } from '../components/LoginForm'
+import './AdminLoginPage.css'
 
-export function AdminLoginPage(){
-    return(
-        <>
-            <title>Admin login page</title>
-            <div className='admin-log-in-page'>
-                <div className='admin-log-in-container'>
-                    <div className='admin-log-in-details'>
-                        <div className='admin-log-in-header'>
-                            <h1 className='admin-log-in-statment'>Log In</h1>
-                            <p className='admin-log-in-request-access'>
-                                Not admin yet?
-                                <a href='request_access' className='request-access-link'>
-                                    Request access
-                                </a>
-                            </p>
-                        </div>
-                        <LoginForm 
-                            loginEndpoint="/api/auth/login/admin"
-                            redirectPath="/admin-dashboard"
-                            isJudge={true}
-                            inputClass = 'admin-input'
-                            submitBtnName = 'Log In'
-                            submitClass = 'admin-signin-btn'
-                        />
-                        <div className='admin-log-in-footer'>
-                            <p className='admin-log-in-request-access'>
-                                Any query?
-                                <a href='contact' className='request-access-link' >
-                                    Call us now
-                                </a>
-                            </p>
-                        </div>
+export function AdminLoginPage() {
+    return (
+        <div className="login-page">
+            <div className="login-container">
+                <div className="login-form-section">
+                    <div className="login-header">
+                        <h1>Admin Login</h1>
+                        <p>System Administration Portal</p>
                     </div>
-                    <div className='admin-log-in-alternative-login'>
-                        <p className='admin-log-in-alternative-statement'>
-                            or continue with following options.
-                        </p>
-                        <a href='google.com'>
-                            <img src='../src/assets/google.png' width='40px' className='admin-log-in-alternative-login-image' />
-                        </a>
-                        <a href='facebook.com'>
-                            <img src='../src/assets/facebook.png' width='40px' className='admin-log-in-alternative-login-image' />
-                        </a>
-                        <a href='apple.com'>
-                            <img src='../src/assets/apple.png' width='40px' className='admin-log-in-alternative-login-image'/>
-                        </a>
+                    
+                    <LoginForm 
+                        loginEndpoint="/api/auth/login/admin"
+                        redirectPath="/admin-dashboard"
+                        isUser={false}
+                        notjudge={false}
+                        inputClass='login-input'
+                        submitBtnName='Sign In'
+                        submitClass='login-submit-btn'
+                        registerLinkContainer='register-link-container'
+                        registerLinkClass='register-link'
+                    />
+                    
+                    <div className="admin-note">
+                        <p>Need access? Contact system administrator</p>
+                    </div>
+                </div>
+
+                <div className="login-info-section admin-info">
+                    <div className="info-icon">🔐</div>
+                    <h2>Admin Portal</h2>
+                    <p>Manage the entire case management system with comprehensive administrative controls.</p>
+                    <div className="info-features">
+                        <div className="feature-item">✓ System Analytics</div>
+                        <div className="feature-item">✓ User Management</div>
+                        <div className="feature-item">✓ Database Control</div>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }

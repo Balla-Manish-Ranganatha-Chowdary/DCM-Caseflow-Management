@@ -98,6 +98,32 @@ def get_all_users(db: Session = Depends(get_db)):
     users = db.query(User).order_by(User.created_at.desc()).all()
     return users
 
+@router.put("/users/{user_id}", response_model=UserResponse)
+def update_user(user_id: int, username: str = None, email: str = None, db: Session = Depends(get_db)):
+    """Update user details"""
+    user = db.query(User).filter(User.id == user_id).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    # Update fields if provided
+    if username is not None:
+        # Check if username is already taken by another user
+        existing = db.query(User).filter(User.username == username, User.id != user_id).first()
+        if existing:
+            raise HTTPException(status_code=400, detail="Username already taken")
+        user.username = username
+    
+    if email is not None:
+        # Check if email is already taken by another user
+        existing = db.query(User).filter(User.email == email, User.id != user_id).first()
+        if existing:
+            raise HTTPException(status_code=400, detail="Email already taken")
+        user.email = email
+    
+    db.commit()
+    db.refresh(user)
+    return user
+
 @router.delete("/users/{user_id}")
 def delete_user(user_id: int, db: Session = Depends(get_db)):
     """Delete a user"""
@@ -115,6 +141,32 @@ def get_all_judges(db: Session = Depends(get_db)):
     """Get all judges"""
     judges = db.query(Judge).order_by(Judge.created_at.desc()).all()
     return judges
+
+@router.put("/judges/{judge_id}", response_model=JudgeResponse)
+def update_judge(judge_id: int, username: str = None, email: str = None, db: Session = Depends(get_db)):
+    """Update judge details"""
+    judge = db.query(Judge).filter(Judge.id == judge_id).first()
+    if not judge:
+        raise HTTPException(status_code=404, detail="Judge not found")
+    
+    # Update fields if provided
+    if username is not None:
+        # Check if username is already taken by another judge
+        existing = db.query(Judge).filter(Judge.username == username, Judge.id != judge_id).first()
+        if existing:
+            raise HTTPException(status_code=400, detail="Username already taken")
+        judge.username = username
+    
+    if email is not None:
+        # Check if email is already taken by another judge
+        existing = db.query(Judge).filter(Judge.email == email, Judge.id != judge_id).first()
+        if existing:
+            raise HTTPException(status_code=400, detail="Email already taken")
+        judge.email = email
+    
+    db.commit()
+    db.refresh(judge)
+    return judge
 
 @router.delete("/judges/{judge_id}")
 def delete_judge(judge_id: int, db: Session = Depends(get_db)):

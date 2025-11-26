@@ -1,73 +1,154 @@
-.judge-login-page-container{
-    background-image: url('../assets/judge_login_background.png');
-    background-size: cover;       /* makes the image fill the screen */
-    background-position: center;  /* centers the image */
-    background-repeat: no-repeat;
-    height: 100vh;
-    margin: 0;
+.login-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 900px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+}
+
+.login-form-section {
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-header {
+    margin-bottom: 30px;
+}
+
+.login-header h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 2.2rem;
+}
+
+.login-header p {
+    color: #7f8c8d;
+    font-size: 1rem;
+    font-style: italic;
+}
+
+.login-input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.login-input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.register-link-container {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.register-link {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}
+
+.login-submit-btn {
+    width: 100%;
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+.login-submit-btn:hover {
+    background: #5a6fd8;
+}
+
+.login-info-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.sign-in-container{
-    display: grid;
-    place-items: center;
-    max-width: 300px;
-    background-color: rgba(255, 255, 255, 0.411);
-    padding: 10px;
-    border-radius: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    transition: all 0.3s ease;
-}
-.sign-in-container:hover{
-    background-color: rgba(255, 255, 255, 0.611);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
-}
-.sign-in-img{
-    margin-left: 115px;
-    background-color: rgba(255, 255, 255, 0.615);
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.295);
-    transition: all 0.3s ease;
-}
-h3{
     text-align: center;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.judge-input{
-    display: block;
-    font-size: 15px;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 12px;
-    background-color: rgba(0, 0, 0, 0.05);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+.judge-info {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
 }
-.judge-register-link-contain{
-    margin-top: 20px;
+
+.info-icon {
+    font-size: 4rem;
     margin-bottom: 20px;
-    font-size: 12px;
 }
-.judge-register-link{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: block;
+
+.login-info-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
-.judge-signin-btn{
-    padding: 10px 60px;
-    border:none;
-    border-radius: 12px;
-    background-color: black;
-    color: whitesmoke;
-    cursor: pointer;
+
+.login-info-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.info-features {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.feature-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
     
-}
-.alternative-sign-in-statement{
-    text-align: center;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
-}
-.alternative-sign-in-application{
-    margin-right: 20px;
+    .login-info-section {
+        order: -1;
+        padding: 30px;
+    }
+    
+    .login-form-section {
+        padding: 30px;
+    }
 }

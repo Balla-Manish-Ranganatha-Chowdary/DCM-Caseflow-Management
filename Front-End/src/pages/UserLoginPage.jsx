@@ -1,55 +1,38 @@
-import { Link} from "react-router"
-import { LoginForm } from "../components/LoginForm";
-import './UserLoginPage.css';
-export function UserLoginPage(){
-    return(
-        <>
-            <title>User Login page</title>
-            
-            <div className="sign-in-format">
-                <h1 className="user-log-in-h1">Sign-in</h1>
-                <div className="alernative-login">
-                    <a href="gmail.com" target="_blank" className="login-image">
-                        <img src="../src/assets/mail.png" width="40px" className="logo" />
-                    </a>
-                    <a href="facebook.com" target="_blank" className="login-image">
-                        <img src="../src/assets/facebook.png" width="40px" className="logo" />
-                    </a>
-                    <a href="github.com" target="_blank" className="login-image">
-                        <img src="../src/assets/github.png" width="40px" className="logo" />
-                    </a>
-                    <a href="linkedin.com" target="_blank" className="login-image">
-                        <img src="../src/assets/linkedin.png" width="40px" className="logo" />
-                    </a>
-                </div>
-                <div className="login-form">
-                    <p className="p-sentence">
-                        Use your email & password
-                    </p>
+import { Link } from "react-router"
+import { LoginForm } from "../components/LoginForm"
+import './UserLoginPage.css'
+
+export function UserLoginPage() {
+    return (
+        <div className="login-page">
+            <div className="login-container">
+                <div className="login-form-section">
+                    <div className="login-header">
+                        <h1>User Login</h1>
+                        <p>Welcome back! Please login to your account</p>
+                    </div>
+                    
                     <LoginForm 
                         loginEndpoint="/api/auth/login/user"
                         redirectPath="/user-dashboard"
                         isUser={true}
                         notjudge={true}
-                        inputClass = 'user-input'
-                        submitBtnName = 'Sign-in'
-                        submitClass = 'user-signin-btn'
-                        registerLinkContainer = 'user-register-link-contain'
-                        registerLinkClass = 'user-register-link'
-                    />  
+                        inputClass='login-input'
+                        submitBtnName='Sign In'
+                        submitClass='login-submit-btn'
+                        registerLinkContainer='register-link-container'
+                        registerLinkClass='register-link'
+                    />
                 </div>
-            </div> 
-            <div className="sign-up-format">
-                <div className="greeting-container">
-                    <h1 className="greeting-sentence">Hello, User!</h1>
-                    <p className="greeting-description">Register with your personal details to use all of site features</p>
-                    <Link to="/user-signup">
-                    <button className="sign-up-btn">
-                        Sign Up
-                    </button>
+
+                <div className="login-info-section">
+                    <h2>New Here?</h2>
+                    <p>Create an account to file cases, track status, and manage your legal matters efficiently.</p>
+                    <Link to="/user-signup" className="signup-link-btn">
+                        Create Account
                     </Link>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
