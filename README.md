@@ -473,19 +473,19 @@ The system implements a sophisticated scheduling algorithm that prioritizes case
 ## 📸 Screenshots
 
 ### Landing Page
-![Home Page](images/HomePage.JPEG)
+![Home Page](images/HomePage.jpeg)
 *Modern landing page with role selection*
 
 ### User Dashboard
-![User Dashboard](images/UserUI.JPEG)
+![User Dashboard](images/UserUI.jpeg)
 *User dashboard with quick actions and recent cases*
 
 ### Judge Analytics
-![Judge Analytics](images/JudgeUI.JPEG)
+![Judge Analytics](images/JudgeUI.jpeg)
 *Comprehensive analytics for judges*
 
 ### Admin Management
-![Admin Management](images/AdminUI.JPEG)
+![Admin Management](images/AdminUI.jpeg)
 *Database management interface for administrators*
 
 ---
