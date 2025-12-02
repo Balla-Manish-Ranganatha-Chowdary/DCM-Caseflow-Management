@@ -28,7 +28,7 @@ def login_judge(request: LoginRequest, db: Session = Depends(get_db)):
     if not judge or not verify_password(request.password, judge.password):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
     
-    access_token = create_access_token(data={"sub": judge.email, "role": "judge", "user_id": judge.id})
+    access_token = create_access_token(data={"sub": judge.email, "role": "judge", "judge_id": judge.id})
     return {
         "access_token": access_token, 
         "token_type": "bearer", 
@@ -43,10 +43,13 @@ def login_admin(request: LoginRequest, db: Session = Depends(get_db)):
     if not admin or not verify_password(request.password, admin.password):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
     
-    access_token = create_access_token(data={"sub": admin.email, "role": "admin", "user_id": admin.id})
+    access_token = create_access_token(data={"sub": admin.email, "role": "admin", "admin_id": admin.id})
+    # Extract username from email (before @)
+    username = admin.email.split('@')[0]
     return {
         "access_token": access_token, 
         "token_type": "bearer", 
         "role": "admin",
-        "user_id": admin.id
+        "user_id": admin.id,
+        "username": username
     }

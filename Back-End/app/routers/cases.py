@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, status, UploadFile, File
+from fastapi import APIRouter, Depends, HTTPException, status, UploadFile, File, Form
 from sqlalchemy.orm import Session
 from sqlalchemy import or_
 from app.database import get_db
@@ -8,7 +8,6 @@ from app.scheduler import MultiLevelQueueScheduler
 from typing import List, Optional
 from datetime import datetime
 import os
-import aiofiles
 import uuid
 
 router = APIRouter()
@@ -32,54 +31,75 @@ async def file_case(
     db: Session = Depends(get_db)
 ):
     """File a new case with optional document upload"""
-    # Verify user exists
-    user = db.query(User).filter(User.id == user_id).first()
-    if not user:
-        raise HTTPException(status_code=404, detail="User not found")
-    
-    # Handle file upload
-    document_path = None
-    document_filename = None
-    if document:
-        # Generate unique filename
-        file_extension = document.filename.split('.')[-1] if '.' in document.filename else ''
-        unique_filename = f"{uuid.uuid4()}.{file_extension}"
-        document_path = os.path.join(UPLOAD_DIR, unique_filename)
-        document_filename = document.filename
+    try:
+        # Verify user exists
+        user = db.query(User).filter(User.id == user_id).first()
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
         
-        # Save file
-        async with aiofiles.open(document_path, 'wb') as f:
-            content = await document.read()
-            await f.write(content)
-    
-    # Create case
-    new_case = Case(
-        case_number=generate_case_number(),
-        title=title,
-        description=description,
-        complexity=complexity,
-        user_id=user_id,
-        status=CaseStatus.PENDING,
-        document_path=document_path,
-        document_filename=document_filename
-    )
-    
-    db.add(new_case)
-    db.commit()
-    db.refresh(new_case)
-    
-    # Schedule the case using multi-level queue algorithm
-    scheduler = MultiLevelQueueScheduler(db)
-    scheduled = scheduler.schedule_case(new_case)
-    
-    if not scheduled:
-        raise HTTPException(
-            status_code=500, 
-            detail="Case filed but could not be scheduled. Please contact admin."
+        # Validate complexity
+        valid_complexities = ['simple', 'moderate', 'complex', 'highly_complex']
+        if complexity not in valid_complexities:
+            raise HTTPException(status_code=400, detail=f"Invalid complexity. Must be one of: {', '.join(valid_complexities)}")
+        
+        # Handle file upload
+        document_path = None
+        document_filename = None
+        if document and document.filename:
+            try:
+                # Generate unique filename
+                file_extension = document.filename.split('.')[-1] if '.' in document.filename else 'bin'
+                unique_filename = f"{uuid.uuid4()}.{file_extension}"
+                document_path = os.path.join(UPLOAD_DIR, unique_filename)
+                document_filename = document.filename
+                
+                # Save file
+                content = await document.read()
+                with open(document_path, 'wb') as f:
+                    f.write(content)
+            except Exception as e:
+                print(f"File upload error: {e}")
+                # Continue without document if upload fails
+                document_path = None
+                document_filename = None
+        
+        # Create case
+        new_case = Case(
+            case_number=generate_case_number(),
+            title=title,
+            description=description,
+            complexity=complexity,
+            user_id=user_id,
+            status=CaseStatus.PENDING,
+            document_path=document_path,
+            document_filename=document_filename
         )
-    
-    db.refresh(new_case)
-    return new_case
+        
+        db.add(new_case)
+        db.commit()
+        db.refresh(new_case)
+        
+        # Schedule the case using multi-level queue algorithm
+        try:
+            scheduler = MultiLevelQueueScheduler(db)
+            scheduled = scheduler.schedule_case(new_case)
+            
+            if not scheduled:
+                # Case is filed but not scheduled yet
+                print("Warning: Case filed but not scheduled")
+        except Exception as e:
+            print(f"Scheduling error: {e}")
+            # Continue even if scheduling fails
+        
+        db.refresh(new_case)
+        return new_case
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        db.rollback()
+        print(f"Error filing case: {e}")
+        raise HTTPException(status_code=500, detail=f"Error filing case: {str(e)}")
 
 @router.get("/user/{user_id}", response_model=List[CaseResponse])
 def get_user_cases(user_id: int, db: Session = Depends(get_db)):
