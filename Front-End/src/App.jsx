@@ -7,7 +7,6 @@ import { UserLoginPage } from './pages/UserLoginPage'
 import { UserSignupPage } from './pages/UserSignupPage'
 import { JudgeLoginPage } from './pages/JudgeLoginPage'
 import { AdminLoginPage } from './pages/AdminLoginPage'
-import { LoginForm } from './components/LoginForm'
 import { UserPage } from './pages/UserPage'
 import { JudgePage } from './pages/JudgePage'
 import { AdminPage } from './pages/AdminPage'
@@ -20,6 +19,7 @@ import { JudgeAnalyticsPage } from './pages/JudgeAnalyticsPage'
 import { AdminDashboard } from './pages/AdminDashboard'
 import { AdminAnalyticsPage } from './pages/AdminAnalyticsPage'
 import { AdminManageRecordsPage } from './pages/AdminManageRecordsPage'
+import { ProtectedRoute } from './components/ProtectedRoute'
 function App() {
 
   return (
@@ -37,27 +37,75 @@ function App() {
       {/* User Routes */}
       <Route path='/user-login' element={<UserLoginPage />}/>
       <Route path='/user-signup' element={<UserSignupPage />}/>
-      <Route path='/user-dashboard' element={<UserDashboard />} />
-      <Route path='/user-file-case' element={<UserFileCasePage />} />
-      <Route path='/user-check-status' element={<UserCheckStatusPage />} />
+      <Route path='/user-dashboard' element={
+        <ProtectedRoute allowedRoles={['user']}>
+          <UserDashboard />
+        </ProtectedRoute>
+      } />
+      <Route path='/user-file-case' element={
+        <ProtectedRoute allowedRoles={['user']}>
+          <UserFileCasePage />
+        </ProtectedRoute>
+      } />
+      <Route path='/user-check-status' element={
+        <ProtectedRoute allowedRoles={['user']}>
+          <UserCheckStatusPage />
+        </ProtectedRoute>
+      } />
       
       {/* Judge Routes */}
       <Route path='/judge-login-page' element={<JudgeLoginPage />} />
-      <Route path='/judge-dashboard' element={<JudgeDashboard />} />
-      <Route path='/judge-cases' element={<JudgeCasesPage />} />
-      <Route path='/judge-analytics' element={<JudgeAnalyticsPage />} />
+      <Route path='/judge-dashboard' element={
+        <ProtectedRoute allowedRoles={['judge']}>
+          <JudgeDashboard />
+        </ProtectedRoute>
+      } />
+      <Route path='/judge-cases' element={
+        <ProtectedRoute allowedRoles={['judge']}>
+          <JudgeCasesPage />
+        </ProtectedRoute>
+      } />
+      <Route path='/judge-analytics' element={
+        <ProtectedRoute allowedRoles={['judge']}>
+          <JudgeAnalyticsPage />
+        </ProtectedRoute>
+      } />
       
       {/* Admin Routes */}
       <Route path='/admin-login-page' element={<AdminLoginPage />} />
-      <Route path='/admin-dashboard' element={<AdminDashboard />} />
-      <Route path='/admin-analytics' element={<AdminAnalyticsPage />} />
-      <Route path='/admin-manage-records' element={<AdminManageRecordsPage />} />
+      <Route path='/admin-dashboard' element={
+        <ProtectedRoute allowedRoles={['admin']}>
+          <AdminDashboard />
+        </ProtectedRoute>
+      } />
+      <Route path='/admin-analytics' element={
+        <ProtectedRoute allowedRoles={['admin']}>
+          <AdminAnalyticsPage />
+        </ProtectedRoute>
+      } />
+      <Route path='/admin-manage-records' element={
+        <ProtectedRoute allowedRoles={['admin']}>
+          <AdminManageRecordsPage />
+        </ProtectedRoute>
+      } />
       
       {/* Legacy Routes for backward compatibility */}
       <Route path='/user-login-page' element={<UserLoginPage />}/>
-      <Route path='/user-login-page/userPage' element={<UserPage />} />
-      <Route path='/judge-login-page/judgePage' element={<JudgePage />} />
-      <Route path='/admin-login-page/adminPage' element={<AdminPage />} />
+      <Route path='/user-login-page/userPage' element={
+        <ProtectedRoute allowedRoles={['user']}>
+          <UserPage />
+        </ProtectedRoute>
+      } />
+      <Route path='/judge-login-page/judgePage' element={
+        <ProtectedRoute allowedRoles={['judge']}>
+          <JudgePage />
+        </ProtectedRoute>
+      } />
+      <Route path='/admin-login-page/adminPage' element={
+        <ProtectedRoute allowedRoles={['admin']}>
+          <AdminPage />
+        </ProtectedRoute>
+      } />
     </Routes>
     </>
   )

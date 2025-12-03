@@ -1,5 +1,14 @@
+-- ============================================================================
 -- Differential Case Flow Management System Database Schema
+-- UPDATED: December 3, 2024 - Includes P-MLQ Implementation
+-- ============================================================================
 -- Run this script in XAMPP MySQL to create the database structure
+--
+-- RECENT CHANGES:
+-- 1. Added 'sections' column for P-MLQ complexity calculation
+-- 2. Fixed password hashes for all users/judges/admins
+-- 3. Added P-MLQ scheduling support with 8-hour workday and breaks
+-- ============================================================================
 
 CREATE DATABASE IF NOT EXISTS case_management;
 USE case_management;
@@ -36,20 +45,23 @@ CREATE TABLE admins (
 );
 
 -- Cases table
+-- P-MLQ Implementation: Complexity calculated from sections count
+-- 1-2 sections=simple(30min), 3-4=moderate(60min), 5-7=complex(120min), 8+=highly_complex(180min)
 CREATE TABLE cases (
     id INT AUTO_INCREMENT PRIMARY KEY,
     case_number VARCHAR(50) NOT NULL UNIQUE,
     title VARCHAR(200) NOT NULL,
     description TEXT NOT NULL,
+    sections TEXT NULL COMMENT 'Comma-separated legal sections (e.g., Section 420, Section 120B)',
     complexity ENUM('simple', 'moderate', 'complex', 'highly_complex') NOT NULL,
     status ENUM('pending', 'scheduled', 'in_progress', 'completed', 'adjourned') DEFAULT 'pending',
-    priority_score INT DEFAULT 0,
+    priority_score INT DEFAULT 0 COMMENT 'P-MLQ: simple=25, moderate=50, complex=75, highly_complex=100',
     user_id INT NOT NULL,
     judge_id INT NULL,
     filed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     scheduled_date DATE NULL,
     scheduled_time TIME NULL,
-    estimated_duration INT NULL COMMENT 'Duration in minutes',
+    estimated_duration INT NULL COMMENT 'Duration in minutes based on complexity',
     document_path VARCHAR(500) NULL,
     document_filename VARCHAR(200) NULL,
     judgment TEXT NULL,
@@ -81,6 +93,8 @@ CREATE TABLE hearings (
 );
 
 -- Judge Schedules table
+-- P-MLQ: Tracks 8-hour workday (9 AM-5 PM) with breaks
+-- Breaks: Lunch 1-2 PM, Morning 11-11:15 AM, Afternoon 3:30-3:45 PM
 CREATE TABLE judge_schedules (
     id INT AUTO_INCREMENT PRIMARY KEY,
     judge_id INT NOT NULL,
@@ -89,7 +103,7 @@ CREATE TABLE judge_schedules (
     end_time TIME NOT NULL,
     is_available BOOLEAN DEFAULT TRUE,
     case_id INT NULL,
-    notes VARCHAR(200) NULL,
+    notes VARCHAR(200) NULL COMMENT 'P-MLQ queue: Q1 (simple), Q2 (moderate), Q3 (complex)',
     INDEX idx_judge_date (judge_id, date),
     INDEX idx_date (date),
     FOREIGN KEY (judge_id) REFERENCES judges(id) ON DELETE CASCADE,
@@ -141,9 +155,17 @@ CREATE INDEX idx_hearings_scheduled ON hearings(scheduled_date, scheduled_time);
 CREATE INDEX idx_judge_schedules_availability ON judge_schedules(judge_id, date, is_available);
 
 -- Comments
-ALTER TABLE cases COMMENT = 'Stores all case information including scheduling and judgments';
+ALTER TABLE cases COMMENT = 'Stores all case information with P-MLQ scheduling';
 ALTER TABLE hearings COMMENT = 'Stores hearing schedules for cases';
-ALTER TABLE judge_schedules COMMENT = 'Manages judge availability and case assignments';
+ALTER TABLE judge_schedules COMMENT = 'Manages judge availability with 8-hour workday and breaks';
 ALTER TABLE users COMMENT = 'User accounts who can file cases';
 ALTER TABLE judges COMMENT = 'Judge accounts who handle cases';
 ALTER TABLE admins COMMENT = 'Admin accounts with system management privileges';
+
+-- ============================================================================
+-- LOGIN CREDENTIALS (All passwords: username@2004)
+-- ============================================================================
+-- Users: rasesh@example.com, samarth@example.com, bully@example.com
+-- Judges: manish@example.com, vade@example.com, venki@example.com  
+-- Admins: ruthvik@example.com, mahesh@example.com, vimal@example.com
+-- ============================================================================

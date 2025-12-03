@@ -9,7 +9,7 @@ export function UserFileCasePage() {
     const [formData, setFormData] = useState({
         title: '',
         description: '',
-        complexity: 'simple'
+        sections: ''
     })
     const [document, setDocument] = useState(null)
     const [isSubmitting, setIsSubmitting] = useState(false)
@@ -42,7 +42,7 @@ export function UserFileCasePage() {
             const formDataToSend = new FormData()
             formDataToSend.append('title', formData.title)
             formDataToSend.append('description', formData.description)
-            formDataToSend.append('complexity', formData.complexity)
+            formDataToSend.append('sections', formData.sections)
             formDataToSend.append('user_id', userId)
             if (document) {
                 formDataToSend.append('document', document)
@@ -111,19 +111,19 @@ export function UserFileCasePage() {
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="complexity">Case Complexity *</label>
-                                <select
-                                    id="complexity"
-                                    name="complexity"
-                                    value={formData.complexity}
+                                <label htmlFor="sections">Legal Sections Involved *</label>
+                                <input
+                                    type="text"
+                                    id="sections"
+                                    name="sections"
+                                    value={formData.sections}
                                     onChange={handleInputChange}
                                     required
-                                >
-                                    <option value="simple">Simple (30 minutes) - Minor disputes, documentation issues</option>
-                                    <option value="moderate">Moderate (60 minutes) - Contract disputes, family matters</option>
-                                    <option value="complex">Complex (120 minutes) - Property disputes, business litigation</option>
-                                    <option value="highly_complex">Highly Complex (180 minutes) - Criminal cases, major civil suits</option>
-                                </select>
+                                    placeholder="e.g., Section 420, Section 120B, Section 34"
+                                />
+                                <small className="file-help">
+                                    Enter sections separated by commas (e.g., Section 420, Section 120B)
+                                </small>
                             </div>
 
                             <div className="form-group">

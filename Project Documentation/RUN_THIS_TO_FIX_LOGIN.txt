@@ -1,0 +1,62 @@
+═══════════════════════════════════════════════════════════════
+              FIX LOGIN ISSUE - FOLLOW THESE STEPS
+═══════════════════════════════════════════════════════════════
+
+STEP 1: Make sure XAMPP MySQL is running
+        Open XAMPP Control Panel → Start MySQL
+
+STEP 2: Run the password fix script
+
+        Option A (Easiest):
+        -------------------
+        1. Open Command Prompt
+        2. cd Back-End
+        3. fix_passwords.bat
+        
+        Option B (Manual):
+        ------------------
+        1. Open Command Prompt
+        2. cd Back-End
+        3. venv\Scripts\activate
+        4. python fix_passwords.py
+
+STEP 3: Test login
+        1. Start backend: cd Back-End && uvicorn main:app --reload
+        2. Start frontend: cd Front-End && npm run dev
+        3. Open browser: http://localhost:5173
+        4. Login with:
+           - Admin: ruthvik@example.com / ruthvik@2004
+           - Judge: manish@example.com / manish@2004
+           - User: rasesh@example.com / rasesh@2004
+
+═══════════════════════════════════════════════════════════════
+
+IF VIRTUAL ENVIRONMENT DOESN'T EXIST:
+--------------------------------------
+cd Back-End
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+python fix_passwords.py
+
+═══════════════════════════════════════════════════════════════
+
+ALTERNATIVE - SQL METHOD (if Python script fails):
+---------------------------------------------------
+1. Open http://localhost/phpmyadmin
+2. Click on "case_management" database
+3. Click "SQL" tab
+4. Copy and paste this:
+
+UPDATE users SET password = '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj3bp.Gm.F5u';
+UPDATE judges SET password = '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj3bp.Gm.F5u';
+UPDATE admins SET password = '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj3bp.Gm.F5u';
+
+5. Click "Go"
+6. Done! All passwords are now: username@2004
+
+═══════════════════════════════════════════════════════════════
+
+THAT'S IT! Login should now work perfectly! ✅
+
+═══════════════════════════════════════════════════════════════

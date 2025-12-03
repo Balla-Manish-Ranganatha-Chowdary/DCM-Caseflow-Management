@@ -55,6 +55,7 @@ class Case(Base):
     case_number = Column(String(50), unique=True, index=True, nullable=False)
     title = Column(String(200), nullable=False)
     description = Column(Text, nullable=False)
+    sections = Column(Text, nullable=True)  # Comma-separated legal sections
     complexity = Column(Enum(CaseComplexity), nullable=False)
     status = Column(Enum(CaseStatus), default=CaseStatus.PENDING)
     priority_score = Column(Integer, default=0)

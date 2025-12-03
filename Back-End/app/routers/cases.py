@@ -21,12 +21,36 @@ def generate_case_number() -> str:
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
     return f"CASE-{timestamp}"
 
+def calculate_complexity_from_sections(sections_str: str) -> str:
+    """
+    Calculate case complexity based on number of legal sections involved
+    Following P-MLQ rubric:
+    - 1-2 sections: simple
+    - 3-4 sections: moderate  
+    - 5-7 sections: complex
+    - 8+ sections: highly_complex
+    """
+    if not sections_str:
+        return 'simple'
+    
+    sections = [s.strip() for s in sections_str.split(',') if s.strip()]
+    num_sections = len(sections)
+    
+    if num_sections <= 2:
+        return 'simple'
+    elif num_sections <= 4:
+        return 'moderate'
+    elif num_sections <= 7:
+        return 'complex'
+    else:
+        return 'highly_complex'
+
 @router.post("/file", response_model=CaseResponse, status_code=status.HTTP_201_CREATED)
 async def file_case(
-    title: str,
-    description: str,
-    complexity: str,
-    user_id: int,
+    title: str = Form(...),
+    description: str = Form(...),
+    sections: str = Form(...),
+    user_id: int = Form(...),
     document: Optional[UploadFile] = File(None),
     db: Session = Depends(get_db)
 ):
@@ -37,10 +61,8 @@ async def file_case(
         if not user:
             raise HTTPException(status_code=404, detail="User not found")
         
-        # Validate complexity
-        valid_complexities = ['simple', 'moderate', 'complex', 'highly_complex']
-        if complexity not in valid_complexities:
-            raise HTTPException(status_code=400, detail=f"Invalid complexity. Must be one of: {', '.join(valid_complexities)}")
+        # Calculate complexity from sections
+        complexity = calculate_complexity_from_sections(sections)
         
         # Handle file upload
         document_path = None
@@ -68,6 +90,7 @@ async def file_case(
             case_number=generate_case_number(),
             title=title,
             description=description,
+            sections=sections,
             complexity=complexity,
             user_id=user_id,
             status=CaseStatus.PENDING,

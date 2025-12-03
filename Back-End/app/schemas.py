@@ -78,6 +78,7 @@ class CaseResponse(BaseModel):
     case_number: str
     title: str
     description: str
+    sections: Optional[str]
     complexity: CaseComplexity
     status: CaseStatus
     priority_score: int
